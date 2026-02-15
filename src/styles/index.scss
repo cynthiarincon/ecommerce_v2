@@ -1,0 +1,243 @@
+$color1: #28e5fa;
+$color2: #ffff57;
+$font1: "Montserrat", sans-serif;
+
+// BODY
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: $font1;
+}
+
+.coupon-code{
+    background-color: $color1;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+    padding: 1%;
+}
+
+.skinthia-logo{
+    display: flex;
+    flex-direction: row;
+    margin: 2% auto 0;
+    width: 35%;
+    height: auto;
+}
+
+// NAV BAR
+nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    background-color: $color2;
+    padding: 1%;
+li a{
+    text-decoration: none;
+    }
+li img{
+    width: 25px;
+    height: auto;
+li a:hover{
+    background-color: $color1;
+}}}
+
+
+//HERO (VIDEO)
+.hero {
+    position: relative;
+.hero-vid{
+    max-width: 100vw;
+    height: auto;
+}
+.hero-btn {
+    position: absolute;
+    top: 75%; //Pushes the button down
+    left: 50%; //Pushes the button halfway across horizontally
+    transform: translate(-50%, -50%); //puts shop now in the middle
+    padding: 14px 28px;
+    background: white;
+    color: rgb(0, 149, 175);
+    font-weight: bold;
+    font-size: 1.3rem;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    opacity: 0.9;
+&:hover{
+    background-color: $color2;
+}
+&:active{
+    background-color: black;
+    color: $color2;
+}}}
+
+
+// 4 FEATURED PRODUCTS
+.feat-prod{
+    text-align: center;
+    background-color: $color1;
+    font-size: .75rem;
+h1{
+    margin: 0;
+    padding: 10px;
+}
+}
+.product-grid{
+    display: grid;
+    grid-template-columns: 1fr; 
+    justify-items: center;
+    gap: 20px;
+.products{
+    width: 75%;
+    height: auto;
+    font-size: .5rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+.prod-title{
+    background-color: $color2;
+    padding: 2%;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+}
+.prod-img{
+    width: 80%;
+    margin:10px;
+    border-radius: 10px;
+}}}
+.prod-desc{
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #333;
+}    
+.prod-price{
+    font-size: 1rem;
+}
+.prod-btn{
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: $color1;
+    color: white;
+    border: none;
+    margin: 10px;
+&:hover{
+    background-color: dimgray;
+    color: white;
+}
+&:active{
+    background-color: black;
+    color: $color2;
+}}
+
+//image
+.ladies-img{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+//Contact me button
+.contact-me{
+    text-align: center;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 100px;
+    height: auto;
+    margin: 15px auto;
+    padding: 10px;
+a{
+    text-decoration: none;
+}}
+
+
+//NEWSLETTER FORM
+form{
+    text-align: center;
+    background-color: $color1;
+    padding: 1%;
+.form-label{
+    margin-top: 10px; 
+}
+.news-input{
+    border: none;
+    margin: 10px;
+    padding: 7px;
+    border-radius: 10px;
+    font-family: $font1;
+}}
+.news-btn{
+    border: none;
+    background-color: $color2;
+    padding: 7px;
+    border-radius: 10px;
+    font-family: $font1;
+    font-weight: bold;
+&:hover{
+    background-color: white;
+    color: $color1;
+&:active{
+    background-color: black;
+    color: $color2;
+}}}
+
+// FOOTER (socials & disclaimers)
+footer{
+    text-align: center;
+    background-color: $color2;
+.socials img{
+    width: 50px;
+    height: auto;
+    margin: 2%;
+}}
+
+
+
+
+
+// MEDIA QUERIES
+@media screen and (max-width: 800px) {
+// screens under 800px (width)
+.hero-btn {
+    font-size: 1.1rem;
+    padding: 10px 22px;
+}
+
+.product-grid .products {
+    width: 90%;
+}}
+
+
+//screens bigger than 800px
+@media screen and (min-width: 800px) {
+// Navigation spacing
+nav ul {
+    justify-content: space-between;
+    padding: 1% 10%;
+}
+// HERO video button adjustment
+.hero-btn {
+    font-size: 1.5rem;
+    padding: 16px 32px;
+    top: 70%;
+}
+
+// 4 FEATURED PRODUCTS grid goes 2 columns on desktop
+.product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+.products {
+    width: 80%;
+    font-size: 1rem;
+}}
+
+.ladies-img {
+    width: 80%;
+    margin: 40px auto;
+    display: block;
+}}

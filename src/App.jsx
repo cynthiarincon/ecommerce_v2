@@ -2,6 +2,8 @@ import CouponBanner from './components/CouponBanner'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
+import './styles/index.scss'
+
 function App() {
   return (
     <>
