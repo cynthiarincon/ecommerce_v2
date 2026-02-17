@@ -1,22 +1,26 @@
+import './styles/index.scss'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import CouponBanner from './components/CouponBanner'
 import Header from './components/Header'
 import Footer from './components/Footer'
-
-import './styles/index.scss'
+import HomePage from './pages/HomePage'
+import ProductsPage from './pages/ProductsPage'
+import ContactPage from './pages/ContactPage'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <CouponBanner />
       <Header />
       
-      <main>
-        <h1>Welcome to Skinthia - React Version!</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A eum possimus sequi, mollitia culpa vel fuga fugiat facere velit voluptatem quo quas sed consequuntur adipisci incidunt tempora aut aliquid totam!</p>
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
       
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
