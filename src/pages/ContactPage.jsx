@@ -27,6 +27,7 @@ function ContactPage() {
   }
 
   return (
+    <main className='contact-page'>
     <div className="contact-container">
       <img className="skinthia-logo" src="/assets/images/skinthia-logo.png" alt="skinthia logo" />
 
@@ -70,6 +71,7 @@ function ContactPage() {
         </form>
       </div>
     </div>
+    </main>
   );
 }
 

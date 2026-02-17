@@ -17,10 +17,26 @@ body{
 
 .coupon-code{
     background-color: $color1;
-    font-size: 1rem;
+    font-size: 0.85rem;
     text-align: center;
     margin: 0;
-    padding: 1%;
+    padding: 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.coupon-code p {
+    display: inline-block;
+    animation: marquee 12s linear infinite;
+    margin: 0;
 }
 
 .skinthia-logo{
@@ -306,14 +322,19 @@ button{
 ========MEDIA QUERIES===========
 ============================= */
 
-@media screen and (max-width: 800px) {
+// TABLET (500px - 799px)
+@media screen and (min-width: 500px) and (max-width: 799px) {
 .hero-btn {
     font-size: 1.1rem;
     padding: 10px 22px;
 }
-.product-grid .products {
-    width: 90%;
-}
+.product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+.products {
+    width: 85%;
+    font-size: 1rem;
+}}
 .contact-form {
     flex-direction: column;
     padding: 10px;
@@ -325,6 +346,7 @@ form {
     width: 100%;
 }}
 
+// DESKTOP (800px and up)
 @media screen and (min-width: 800px) {
 nav ul {
     justify-content: space-between;
@@ -336,7 +358,7 @@ nav ul {
     top: 70%;
 }
 .product-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 .products {
     width: 80%;
@@ -373,7 +395,4 @@ img{
 }
 form{
     width: 50%;
-}}
-.product-grid{
-    grid-template-columns: repeat(4, 1fr);
-}}
+}}}
