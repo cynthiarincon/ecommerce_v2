@@ -6,7 +6,7 @@ function ProductsPage() {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    fetch('/product.json')
+    fetch('http://localhost:5000/api/products')
       .then(response => response.json())
       .then(data => setProducts(data));
   }, []);
@@ -15,6 +15,7 @@ function ProductsPage() {
     if (filter === 'all') return true;
     if (filter === 'under10') return product.price < 10;
     if (filter === 'under15') return product.price < 15;
+    if(filter === 'skincare') return !product.name.includes('Merch');
     if (filter === 'merch') return product.name.includes('Merch');
     return true;
   });
@@ -34,8 +35,11 @@ function ProductsPage() {
         <button onClick={() => setFilter('all')}>All</button>
         <button onClick={() => setFilter('under10')}>Under $10</button>
         <button onClick={() => setFilter('under15')}>Under $15</button>
+        <button onClick={()=> setFilter('skincare')}>Skincare</button>
         <button onClick={() => setFilter('merch')}>Merch</button>
       </div>
+
+      <p className="product-count">Showing {filteredProducts.length} products</p>
 
       <div className="product-grid">
         {filteredProducts.map(product => (

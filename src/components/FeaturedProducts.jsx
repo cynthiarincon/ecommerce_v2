@@ -5,13 +5,12 @@ function FeaturedProducts() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('/product.json')
-      .then(response => response.json())
-      .then(data => {
-        const featured = data.filter(product => product.featured);
-        setProducts(featured);
-      });
-  }, []);
+  fetch('http://localhost:5000/api/products/featured')
+    .then(response => response.json())
+    .then(data => {
+      setProducts(data);
+    });
+}, []);
 
   return (
     <>
