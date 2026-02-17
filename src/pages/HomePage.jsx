@@ -1,8 +1,24 @@
+import Hero from '../components/Hero';
+import FeaturedProducts from '../components/FeaturedProducts';
+import Newsletter from '../components/Newsletter';
+
 function HomePage() {
   return (
     <main>
-      <h1>Home Page</h1>
-      <p>This will be my hero video and featured products</p>
+      <Hero />
+      <FeaturedProducts />
+      
+      <img 
+        className="ladies-img" 
+        src="/assets/images/ladies.png" 
+        alt="product line and ladies in the background" 
+      />
+      
+      <p className="contact-me">
+        <a href="/contact">CONTACT ME</a>
+      </p>
+      
+      <Newsletter />
     </main>
   );
 }
