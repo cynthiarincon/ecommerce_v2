@@ -6,8 +6,7 @@ function ProductsPage() {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/products')
-      .then(response => response.json())
+    fetch(`${import.meta.env.VITE_API_URL}/api/products`)      .then(response => response.json())
       .then(data => setProducts(data));
   }, []);
 
