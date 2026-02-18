@@ -416,6 +416,44 @@ button{
 }}}
 
 /* =============================
+===PLACEHOLDER PAGE STYLING====
+============================= */
+
+.placeholder-page {
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 60vh;
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    p {
+        font-size: 1.2rem;
+        color: #666;
+    }
+}
+
+.back-home-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: $color2;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        background-color: $color1;
+        color: white;
+        transform: scale(1.05);
+    }
+}
+
+/* =============================
 =====PRODUCT STYLING BELOW=====
 ============================= */
 
