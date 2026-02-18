@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const mysql = require('mysql2');
+const { Pool } = require('pg');
 const cors = require('cors');
 
 const app = express();
@@ -10,41 +10,41 @@ app.use(cors());
 app.use(express.json());
 
 // Database connection
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
-db.connect((err) => {
+// Test connection
+pool.connect((err, client, release) => {
   if (err) {
     console.log('Database connection failed:', err);
     return;
   }
-  console.log('Connected to MySQL database!');
+  console.log('Connected to PostgreSQL database!');
+  release();
 });
 
 // GET all products
-app.get('/api/products', (req, res) => {
-  db.query('SELECT * FROM products', (err, results) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    res.json(results);
-  });
+app.get('/api/products', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM products');
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // GET featured products only
-app.get('/api/products/featured', (req, res) => {
-  db.query('SELECT * FROM products WHERE featured = true', (err, results) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    res.json(results);
-  });
+app.get('/api/products/featured', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM products WHERE featured = true');
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // Start server
